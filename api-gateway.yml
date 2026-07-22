@@ -1,5 +1,13 @@
 server:
-  port: 8081
+  port: 8080
+
+app:
+  security:
+    public-routes:
+      - "/api/v1/account/auth/login"
+      - "/api/v1/account/auth/signup"
+      - "/api/v1/account/webhooks/**"
+      - "/api/v1/workspace/public/**"
 
 spring:
   cloud:
@@ -28,4 +36,3 @@ spring:
             - Path=/api/v1/intelligence/**
           filters:
             - StripPrefix=2
-  

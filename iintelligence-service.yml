@@ -18,4 +18,20 @@ spring:
         options:
           model: google/gemma-4-26b-a4b-it:free
           temperature: 0.2
+
+  spring:
+  config:
+    activate:
+      on-profile: k8s
+  datasource:
+    url: jdbc:postgresql://pgvector.lovable-core.svc.cluster.local:5432/intelligence_db
+    username: intelligence_user
+    password: ${DB_PASSWORD}
+
+  ai:
+    openai:
+      api-key: ${AI_API_KEY}
+    chat:
+        options:
+          model: google/gemma-4-26b-a4b-it:free
       
